@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+  <context id="mysqlgenerator">
+  	<commentGenerator>
+		<!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+		<property name="suppressAllComments" value="true" />
+	</commentGenerator>
+	<!--数据库连接的信息：驱动类、连接地址、用户名、密码 -->
+    <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/db_demo" userId="root" password="qwerty1234" />
+    
+    <!--生成Model实体类存放位置-->
+    <javaModelGenerator targetPackage="com.springmvc.model" targetProject="HelloSpringMVC/src">
+        <!-- 是否在当前路径targetPackage的基础上新加一层schema，默认fals，eg：fase路径com.oop.eksp.user.model， true:com.oop.eksp.user.model.[schemaName] --> 
+        <property name="enableSubPackages" value="false"/>
+        <!-- 设置是否在getter方法中，对String类型字段调用trim()方法清理前后的空格 -->
+        <property name="trimStrings" value="true"/>
+    </javaModelGenerator>
+    <!--生成映射文件mapper.xml存放位置-->
+    <sqlMapGenerator targetPackage="com.springmvc.mapper" targetProject="HelloSpringMVC/src">
+        <property name="enableSubPackages" value="false"/>
+    </sqlMapGenerator>
+    <!--生成接口Dao类存放位置-->
+    <javaClientGenerator targetPackage="com.springmvc.dao" targetProject="HelloSpringMVC/src" type="XMLMAPPER">
+        <property name="enableSubPackages" value="false"/>
+    </javaClientGenerator>
+    
+    <!-- 列出要生成代码的所有表，这里配置的是不生成Example文件 -->
+    <table tableName="studentclass" enableCountByExample="false" enableUpdateByExample="false"
+                enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+    <table tableName="student" enableCountByExample="false" enableUpdateByExample="false"
+                enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+    
+  </context>
+</generatorConfiguration>

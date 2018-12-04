@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springmvc.dao.StudentclassMapper">
+  <resultMap id="BaseResultMap" type="com.springmvc.model.Studentclass">
+    <id column="ClassId" jdbcType="INTEGER" property="classid" />
+    <result column="ClassName" jdbcType="VARCHAR" property="classname" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ClassId, ClassName
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from studentclass
+    where ClassId = #{classid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from studentclass
+    where ClassId = #{classid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.springmvc.model.Studentclass">
+    insert into studentclass (ClassId, ClassName)
+    values (#{classid,jdbcType=INTEGER}, #{classname,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.springmvc.model.Studentclass">
+    insert into studentclass
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="classid != null">
+        ClassId,
+      </if>
+      <if test="classname != null">
+        ClassName,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="classid != null">
+        #{classid,jdbcType=INTEGER},
+      </if>
+      <if test="classname != null">
+        #{classname,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.springmvc.model.Studentclass">
+    update studentclass
+    <set>
+      <if test="classname != null">
+        ClassName = #{classname,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ClassId = #{classid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.springmvc.model.Studentclass">
+    update studentclass
+    set ClassName = #{classname,jdbcType=VARCHAR}
+    where ClassId = #{classid,jdbcType=INTEGER}
+  </update>
+</mapper>

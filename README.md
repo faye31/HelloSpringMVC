@@ -1,6 +1,7 @@
 # HelloSpringMVC
-This is A demo of SpringMVC + MyBatis.
-1. Enviroment Requirements:
+This is A demo of SpringMVC + MyBatis.  
+
+1. Enviroment Requirements:  
 Java, 1.8.0  
 Tomcat, 8.5.34  
 Mysql, 5.7.24  

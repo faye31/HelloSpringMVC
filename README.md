@@ -10,5 +10,8 @@ eclipse-jee 4.9
 
 2. db and table:
 Before you run this tutorial, you need to create a database with HelloSpringMVC/WebContent/WEB-INF/pages/demo.sql  
+Besides, you also need to modify the db connection link and mysql's login info:
+HelloSpringMVC/src/jdbc.properties  
+HelloSpringMVC/generatorConfig.xml  
 
 If you got any problem, pls create issues here. Many Thanks!  

@@ -1,4 +1,10 @@
 -- ----------------------------
+-- Database structure for `db_demo`
+-- ----------------------------
+drop database if exists db_demo;
+create database db_demo;
+
+-- ----------------------------
 -- Table structure for `studentclass`
 -- ----------------------------
 DROP TABLE IF EXISTS `studentclass`;
